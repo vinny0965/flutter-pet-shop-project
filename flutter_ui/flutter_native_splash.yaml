@@ -1,0 +1,11 @@
+flutter_native_splash:
+  color: "#f7f6f1"
+  color_dark: "272727"
+  image: assets/banhotosa.png
+  image_dark: assets/banhotosa.png
+
+  android:12:
+    image: assets/banhotosa.png
+    icon_background_color: "#f7f6f1"
+    image_dark: assets/banhotosa.png
+    icon_background_color_dark: "272727"
