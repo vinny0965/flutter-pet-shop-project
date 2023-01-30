@@ -1,5 +1,10 @@
 //--Textos da tela de splash
 
+//--Texto genérico
+
+const String tLogin = "Login";
+const String tSignUp = "Cadastro";
+
 const String tAppName = "PetShop";
 const String tAppTagLine = "para seu Pet Amar/";
 
@@ -17,3 +22,9 @@ const String tOnBoardingSubtitle3 =
 const String tOnBoardingCounter1 = "1/3";
 const String tOnBoardingCounter2 = "2/3";
 const String tOnBoardingCounter3 = "3/3";
+
+//--texto da tela de bem vindo
+
+const String tWelcomeTitle = "Seja bem vindo ao PetShop";
+const String tWelcomeSubtitle =
+    "Para continuar faça o login ou crie uma conta no nosso aplicativo";

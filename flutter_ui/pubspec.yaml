@@ -64,6 +64,8 @@ flutter:
     - assets/images/
     - assets/fonts/google_fonts/
     - assets/images/on_boarding_images/
+    - assets/images/welcome_images/
+
 
    
     # The following line ensures that the Material Icons font is
