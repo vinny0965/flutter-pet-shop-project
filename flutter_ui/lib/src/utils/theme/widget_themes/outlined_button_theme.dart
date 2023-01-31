@@ -9,7 +9,7 @@ class TOutlinedButtonTheme {
 
   static final ligthOutlinedButtonTheme = OutlinedButtonThemeData(
     style: OutlinedButton.styleFrom(
-        shape: RoundedRectangleBorder(),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
         foregroundColor: tSecondaryColor,
         side: BorderSide(color: tSecondaryColor),
         padding: EdgeInsets.symmetric(vertical: tButtonHeigth)),
@@ -19,7 +19,7 @@ class TOutlinedButtonTheme {
 
   static final darkOutlinedButtonTheme = OutlinedButtonThemeData(
     style: OutlinedButton.styleFrom(
-        shape: RoundedRectangleBorder(),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
         foregroundColor: tWhiteColor,
         side: BorderSide(color: tWhiteColor),
         padding: EdgeInsets.symmetric(vertical: tButtonHeigth)),
