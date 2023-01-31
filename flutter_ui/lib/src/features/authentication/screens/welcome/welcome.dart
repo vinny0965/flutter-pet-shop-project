@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_ui/src/constants/color.dart';
 import 'package:flutter_ui/src/constants/image_strings.dart';
 import 'package:flutter_ui/src/constants/sizes.dart';
 import 'package:flutter_ui/src/constants/text_strings.dart';
@@ -36,10 +37,31 @@ class Welcome extends StatelessWidget {
           ),
           Row(
             children: [
-              OutlinedButton(
-                  onPressed: () {}, child: Text(tLogin.toUpperCase())),
-              ElevatedButton(
-                  onPressed: () {}, child: Text(tSignUp.toUpperCase()))
+              Expanded(
+                child: OutlinedButton(
+                    onPressed: () {},
+                    style: OutlinedButton.styleFrom(
+                        shape: RoundedRectangleBorder(),
+                        foregroundColor: tSecondaryColor,
+                        side: BorderSide(color: tSecondaryColor),
+                        padding: EdgeInsets.all(tButtonHeigth)),
+                    child: Text(tLogin.toUpperCase())),
+              ),
+              SizedBox(
+                width: 10.0,
+              ),
+              Expanded(
+                child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(),
+                        foregroundColor: tWhiteColor,
+                        backgroundColor: tSecondaryColor,
+                        side: BorderSide(color: tSecondaryColor),
+                        padding: EdgeInsets.all(tButtonHeigth)),
+                    onPressed: () {},
+                    child: Text(tSignUp.toUpperCase())),
+              )
             ],
           )
         ],
