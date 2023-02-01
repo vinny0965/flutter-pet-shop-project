@@ -12,7 +12,7 @@ class FadeInAnimationController extends GetxController {
     await Future.delayed(Duration(milliseconds: 5000));
     animate.value = false;
     await Future.delayed(Duration(milliseconds: 2000));
-    Get.offAll(() => const Welcome());
+    Get.offAll(() => OnBoardingScreen());
     // Navigator.pushReplacement(
     //     cont'ext, MaterialPageRoute(builder: (context) => Welcome()));
   }

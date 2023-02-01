@@ -1,5 +1,7 @@
+import 'package:flutter_ui/src/common_widgets/fade_in_animation/fade_in_animation_controller.dart';
 import 'package:flutter_ui/src/constants/color.dart';
 import 'package:flutter_ui/src/constants/text_strings.dart';
+import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 import 'package:liquid_swipe/PageHelpers/LiquidController.dart';
 
@@ -9,7 +11,6 @@ import '../screens/on_boarding/on_boarding_page_widget.dart';
 
 class OnBoardingController extends GetxController {
   final controller = LiquidController();
-
   RxInt currentPage = 0.obs;
 
   final pages = [
@@ -27,13 +28,6 @@ class OnBoardingController extends GetxController {
             subTitle: tOnBoardingSubtitle2,
             counterText: tOnBoardingCounter2,
             bgColor: tOnBoardingPage2Color)),
-    OnBoardingPageWidget(
-        model: OnBoardingModel(
-            image: tOnBoardingImage3,
-            title: tOnBoardingTitle3,
-            subTitle: tOnBoardingSubtitle3,
-            counterText: tOnBoardingCounter3,
-            bgColor: tOnBoardingPage3Color))
   ];
 
   onPageChangeCallback(int activePageIndex) {
@@ -41,7 +35,7 @@ class OnBoardingController extends GetxController {
   }
 
   skip() {
-    controller.jumpToPage(page: 2);
+    controller.jumpToPage(page: 1);
   }
 
   animateToNextSlide() {

@@ -19,9 +19,9 @@ const String tOnBoardingSubtitle2 =
     "Procure pelo que deseja de modo rápido e fácil";
 const String tOnBoardingSubtitle3 =
     "Estamos disponíveis também para lhe ouvir e atender melhor";
-const String tOnBoardingCounter1 = "1/3";
-const String tOnBoardingCounter2 = "2/3";
-const String tOnBoardingCounter3 = "3/3";
+const String tOnBoardingCounter1 = "1/2";
+const String tOnBoardingCounter2 = "2/2";
+const String tOnBoardingCounter3 = "3/2";
 
 //--texto da tela de bem vindo
 
