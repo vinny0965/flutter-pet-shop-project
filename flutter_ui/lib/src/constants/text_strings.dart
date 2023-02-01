@@ -55,3 +55,8 @@ const String tResetViaCel = "Recupere usando o seu número";
 
 const String tForgetPhoneSubtitle = "Digite seu telefone para receber o código";
 const String tForgetMailSubtitle = "Digite seu email para receber o código";
+
+const String tOtpTitle = "Código";
+const String tOtpSubtitle = "Verificação";
+const String tOtpMessage =
+    "Insira o código de verificação enviado para o \n E-mail cadastrado";
