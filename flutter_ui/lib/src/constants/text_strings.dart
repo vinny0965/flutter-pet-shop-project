@@ -40,3 +40,9 @@ const String tSenha = "Password";
 const String tForgetPassword = "Esqueceu a senha?";
 const String tSignInWithGoogle = "Login com Google";
 const String tDontHaveAnAccount = "Não tem uma conta? ";
+
+const String tSignUpTitle = "Crie sua conta!";
+const String tSignUpSubTitle =
+    "Tenha acesso a todos os serviços da plataforma...";
+const String tFullName = "Nome Completo";
+const String tPhoneN = "Número de Telefone";
