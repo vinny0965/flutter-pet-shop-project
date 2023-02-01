@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/src/constants/sizes.dart';
 import 'package:flutter_ui/src/constants/text_strings.dart';
+import 'package:flutter_ui/src/features/authentication/screens/forget_password/forget_password_options/forget_password_model_bottom_sheet.dart';
+
+import '../forget_password/forget_password_options/forget_password_btn_widget.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
@@ -11,12 +14,12 @@ class LoginForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return Form(
         child: Container(
-      padding: EdgeInsets.symmetric(vertical: tFormHeigth - 10),
+      padding: const EdgeInsets.symmetric(vertical: tFormHeigth - 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TextFormField(
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
                 prefixIcon: Icon(Icons.person_outline_outlined),
                 labelText: tEmail,
                 hintText: tEmail,
@@ -24,7 +27,7 @@ class LoginForm extends StatelessWidget {
           ),
           const SizedBox(height: tFormHeigth - 20),
           TextFormField(
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
                 prefixIcon: Icon(Icons.fingerprint),
                 labelText: tSenha,
                 hintText: tSenha,
@@ -35,8 +38,11 @@ class LoginForm extends StatelessWidget {
           const SizedBox(height: tFormHeigth - 20),
           Align(
               alignment: Alignment.centerRight,
-              child:
-                  TextButton(onPressed: () {}, child: Text(tForgetPassword))),
+              child: TextButton(
+                  onPressed: () {
+                    ForgetPasswordScreen.buildShowModalBottomSheet(context);
+                  },
+                  child: const Text(tForgetPassword))),
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(

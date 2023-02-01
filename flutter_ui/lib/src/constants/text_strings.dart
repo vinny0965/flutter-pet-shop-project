@@ -46,3 +46,12 @@ const String tSignUpSubTitle =
     "Tenha acesso a todos os serviços da plataforma...";
 const String tFullName = "Nome Completo";
 const String tPhoneN = "Número de Telefone";
+
+const String tForgetPasswordTitle = "Escolha uma Opção!";
+const String tForgetPasswordSubtitle =
+    "Selecione uma das opções para recuperar sua senha.";
+const String tResetViaEmail = "Recuperar usando seu E-mail";
+const String tResetViaCel = "Recupere usando o seu número";
+
+const String tForgetPhoneSubtitle = "Digite seu telefone para receber o código";
+const String tForgetMailSubtitle = "Digite seu email para receber o código";
