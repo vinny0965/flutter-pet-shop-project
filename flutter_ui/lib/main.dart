@@ -25,15 +25,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-class AppHome extends StatelessWidget {
-  const AppHome({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Meu Aplicativo')),
-      body: Center(child: Text('Home Page')),
-    );
-  }
-}
