@@ -60,3 +60,14 @@ const String tOtpTitle = "Código";
 const String tOtpSubtitle = "Verificação";
 const String tOtpMessage =
     "Insira o código de verificação enviado para o \n E-mail cadastrado";
+
+//Dashboarding
+
+const String tDashBoardTitle = "Olá, Seja Bem vindo";
+const String tDashboardHeading = "Procure por Lojas";
+const String tDashBoardingSearch = "Pesquisar...";
+const String tDashboardBannerTitle1 = "Android for Beginners";
+const String tDashboardBannerTitle2 = "JAVA";
+const String tDashboardingSubtitle = "Serviços";
+const String tDashboardButton = "Ver todos";
+const String tDashboardTopAtendimentos = "Top Atendimentos";
