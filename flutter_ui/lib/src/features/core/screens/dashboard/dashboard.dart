@@ -206,6 +206,242 @@ class DashBoard extends StatelessWidget {
                   ),
                 ],
               ),
+            ),
+            const SizedBox(
+              height: tDashboardPadding,
+            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: tCardBgColor),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 10, vertical: 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Flexible(
+                                child:
+                                    Image(image: AssetImage(tVeterinarioImage)))
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 25,
+                        ),
+                        Text(
+                          tDashboardBannerTitle1,
+                          style: textTheme.headline4,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        Text(
+                          tDashboardingSubtitle,
+                          style: textTheme.bodyText2,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  width: tDashboardCardPadding,
+                ),
+                Expanded(
+                    child: Column(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: tCardBgColor),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: const [
+                              Flexible(
+                                  child: Image(
+                                      image:
+                                          AssetImage(tVeterinarioPrachImage)))
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 25,
+                          ),
+                          Text(
+                            tDashboardBannerTitle2,
+                            style: textTheme.headline4,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          Text(
+                            tDashboardingSubtitle2,
+                            style: textTheme.bodyText2,
+                            overflow: TextOverflow.ellipsis,
+                          )
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      width: double.infinity,
+                      child: OutlinedButton(
+                          onPressed: () {}, child: Text(tDashBoardButtonText)),
+                    ),
+                  ],
+                ))
+              ],
+            ),
+            const SizedBox(
+              height: tDashboardPadding,
+            ),
+            Text(
+              tDashboardTopAtendimentos,
+              style: textTheme.headline4?.apply(fontSizeFactor: 1.2),
+            ),
+            SizedBox(
+              height: 200,
+              child: ListView(
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                children: [
+                  SizedBox(
+                    width: 320,
+                    height: 200,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: tCardBgColor),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Flexible(
+                                child: Text(
+                                  "Agendamento de Vacinas",
+                                  style: textTheme.headline4,
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                              Flexible(
+                                child: const Image(
+                                  image: AssetImage(tVacina),
+                                  height: 110,
+                                ),
+                              )
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                      shape: const CircleBorder()),
+                                  onPressed: () {},
+                                  child: Icon(Icons.start)),
+                              const SizedBox(
+                                width: tDashboardCardPadding,
+                              ),
+                              Flexible(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "5 Variantes de Vacina",
+                                      style: textTheme.headline4,
+                                    ),
+                                    Text(
+                                      "Mantenha atualizada a carteirinha de vacinação",
+                                      style: textTheme.bodyText1,
+                                      overflow: TextOverflow.ellipsis,
+                                    )
+                                  ],
+                                ),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 320,
+                    height: 200,
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: tCardBgColor),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Flexible(
+                                  child: Text(
+                                    "Agendamento de Vacinas",
+                                    style: textTheme.headline4,
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                                Flexible(
+                                  child: const Image(
+                                    image: AssetImage(tVacina),
+                                    height: 110,
+                                  ),
+                                )
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                        shape: const CircleBorder()),
+                                    onPressed: () {},
+                                    child: Icon(Icons.start)),
+                                const SizedBox(
+                                  width: tDashboardCardPadding,
+                                ),
+                                Flexible(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "5 Variantes de Vacina",
+                                        style: textTheme.headline4,
+                                      ),
+                                      Text(
+                                        "Mantenha atualizada a carteirinha de vacinação",
+                                        style: textTheme.bodyText1,
+                                        overflow: TextOverflow.ellipsis,
+                                      )
+                                    ],
+                                  ),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             )
           ],
         ),
