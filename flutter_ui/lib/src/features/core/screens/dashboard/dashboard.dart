@@ -3,6 +3,7 @@ import 'package:flutter_ui/src/constants/color.dart';
 import 'package:flutter_ui/src/constants/image_strings.dart';
 import 'package:flutter_ui/src/constants/sizes.dart';
 import 'package:flutter_ui/src/constants/text_strings.dart';
+import 'package:flutter_ui/src/repository/authentication_repository/authentication_repository.dart';
 import 'package:get/get.dart';
 
 class DashBoard extends StatelessWidget {
@@ -31,7 +32,9 @@ class DashBoard extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10), color: tCardBgColor),
             child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  AuthenticationRepository.instance.logout();
+                },
                 icon: const Image(image: AssetImage(tUserProfileImage))),
           )
         ],
