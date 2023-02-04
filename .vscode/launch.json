@@ -1,0 +1,48 @@
+{
+    // Use o IntelliSense para saber mais sobre os atributos possíveis.
+    // Focalizar para exibir as descrições dos atributos existentes.
+    // Para obter mais informações, acesse: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "flutter_ui",
+            "cwd": "flutter_ui",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "flutter_ui (profile mode)",
+            "cwd": "flutter_ui",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "flutter_ui (release mode)",
+            "cwd": "flutter_ui",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "auth_repository",
+            "cwd": "flutter_ui/packages/auth_repository",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "auth_repository (profile mode)",
+            "cwd": "flutter_ui/packages/auth_repository",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "auth_repository (release mode)",
+            "cwd": "flutter_ui/packages/auth_repository",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}

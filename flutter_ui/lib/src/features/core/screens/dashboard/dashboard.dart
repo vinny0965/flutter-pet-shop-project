@@ -21,7 +21,7 @@ class DashBoard extends StatelessWidget {
         ),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.transparent,
+        backgroundColor: tColorInicial,
         title: Text(
           tAppName,
           style: Theme.of(context).textTheme.headline4,
@@ -30,7 +30,7 @@ class DashBoard extends StatelessWidget {
           Container(
             margin: const EdgeInsets.only(right: 20, top: 7),
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10), color: tCardBgColor),
+                borderRadius: BorderRadius.circular(10), color: tColorInicial),
             child: IconButton(
                 onPressed: () {
                   AuthenticationRepository.instance.logout();

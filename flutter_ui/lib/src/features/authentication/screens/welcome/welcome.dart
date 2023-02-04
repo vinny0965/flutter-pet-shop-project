@@ -9,6 +9,7 @@ import 'package:flutter_ui/src/constants/image_strings.dart';
 import 'package:flutter_ui/src/constants/sizes.dart';
 import 'package:flutter_ui/src/constants/text_strings.dart';
 import 'package:flutter_ui/src/features/authentication/screens/login/login_screen.dart';
+import 'package:flutter_ui/src/features/authentication/screens/signup/sign_up_screen.dart';
 import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
 
@@ -71,12 +72,14 @@ class Welcome extends StatelessWidget {
                               },
                               child: Text(tLogin.toUpperCase())),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 8.0,
                         ),
                         Expanded(
                           child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Get.to(const SignUpScreen());
+                              },
                               child: Text(tSignUp.toUpperCase())),
                         )
                       ],

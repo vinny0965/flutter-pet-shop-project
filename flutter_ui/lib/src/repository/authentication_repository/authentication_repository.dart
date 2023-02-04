@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_ui/src/features/authentication/screens/on_boarding/on_boarding_screen.dart';
 import 'package:flutter_ui/src/features/authentication/screens/splash_screen/splash_screen.dart';
 import 'package:flutter_ui/src/features/authentication/screens/welcome/welcome.dart';
 import 'package:flutter_ui/src/features/core/screens/dashboard/dashboard.dart';
@@ -33,7 +34,7 @@ class AuthenticationRepository extends GetxController {
       await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
       firebaseUser.value != null
-          ? Get.offAll(() => const DashBoard())
+          ? Get.offAll(() => OnBoardingScreen())
           : Get.to(const Welcome());
     } on FirebaseAuthException catch (e) {
       final ex = SiginUpWithEmailAndPasswordFailure.code(e.code);

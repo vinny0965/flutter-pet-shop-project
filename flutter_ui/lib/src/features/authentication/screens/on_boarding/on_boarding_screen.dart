@@ -10,6 +10,7 @@ import 'package:flutter_ui/src/features/authentication/controllers/on_boarding_c
 import 'package:flutter_ui/src/features/authentication/models/model_on_boarding.dart';
 import 'package:flutter_ui/src/features/authentication/screens/on_boarding/on_boarding_page_widget.dart';
 import 'package:flutter_ui/src/features/authentication/screens/welcome/welcome.dart';
+import 'package:flutter_ui/src/features/core/screens/dashboard/dashboard.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:get/route_manager.dart';
@@ -58,7 +59,7 @@ class OnBoardingScreen extends StatelessWidget {
               top: 50,
               right: 20,
               child: TextButton(
-                onPressed: () => Get.offAll(Welcome()),
+                onPressed: () => Get.offAll(const DashBoard()),
                 // onPressed: () => obController.skip(),
                 child: const Text(
                   "Pular",
