@@ -3,6 +3,7 @@
 //--Texto genérico
 
 const String tLogin = "Login";
+const String tLoggout = "Loggout";
 const String tSignUp = "Cadastro";
 
 const String tAppName = "PetShop";
@@ -73,3 +74,25 @@ const String tDashboardingSubtitle2 = "Online";
 const String tDashboardButton = "Ver todos";
 const String tDashboardTopAtendimentos = "Top Atendimentos";
 const String tDashBoardButtonText = "Ver mais";
+
+//Profile Screen
+
+const String tProfile = "Perfil";
+const String tEditProfile = "Editar Perfil";
+const String tLogoutDialogHeading = "Loggout";
+const String tProfileHeading = "Coding with T";
+const String tProfileSubHeading = "superAdimin@ufrpe.br";
+
+//menu
+
+const String tMenu5 = tLoggout;
+const String tMenu1 = "Configurações";
+const String tMenu4 = "Informação";
+const String tMenu2 = "Detalhes";
+const String tMenu3 = "Usuário Gerenciamento";
+
+//update profile
+
+const String tDelete = "Deletar";
+const String tJoined = "Ingressou";
+const String tJoinedAt = "08 Fevereiro 2023";

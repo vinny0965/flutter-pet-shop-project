@@ -3,6 +3,7 @@ import 'package:flutter_ui/src/constants/color.dart';
 import 'package:flutter_ui/src/constants/image_strings.dart';
 import 'package:flutter_ui/src/constants/sizes.dart';
 import 'package:flutter_ui/src/constants/text_strings.dart';
+import 'package:flutter_ui/src/features/core/screens/profile/profile_screen.dart';
 import 'package:flutter_ui/src/repository/authentication_repository/authentication_repository.dart';
 import 'package:get/get.dart';
 
@@ -33,7 +34,8 @@ class DashBoard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10), color: tColorInicial),
             child: IconButton(
                 onPressed: () {
-                  AuthenticationRepository.instance.logout();
+                  Get.to(() => const ProifleScreen());
+                  // AuthenticationRepository.instance.logout();
                 },
                 icon: const Image(image: AssetImage(tUserProfileImage))),
           )

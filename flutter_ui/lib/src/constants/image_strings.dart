@@ -33,3 +33,4 @@ const String tTopCourseImage1 = "assets/images/on_boarding_images/onboard3.png";
 const String tVeterinarioImage = "assets/images/veterinario2.png";
 const String tVeterinarioPrachImage = "assets/images/pranchveterinario.png";
 const String tVacina = "assets/images/vacina.png";
+const String tProfileImage = "assets/images/profile/profile-pic.png";
