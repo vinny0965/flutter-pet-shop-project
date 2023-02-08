@@ -20,7 +20,9 @@ class SiginUpWithEmailAndPasswordFailure {
       case 'user-disable':
         return const SiginUpWithEmailAndPasswordFailure(
             'Por favor digite uma senha forte');
-
+      case 'email-already-exists':
+        return const SiginUpWithEmailAndPasswordFailure(
+            'O e-mail fornecido já está em uso por um usuário existente.');
       default:
         return const SiginUpWithEmailAndPasswordFailure();
     }

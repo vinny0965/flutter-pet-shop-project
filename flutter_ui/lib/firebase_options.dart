@@ -67,6 +67,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '1083250823414',
     projectId: 'fir-flutter-petshop',
     storageBucket: 'fir-flutter-petshop.appspot.com',
+    androidClientId: '1083250823414-g2quisopa9vemlhi4komi2h588boi40u.apps.googleusercontent.com',
     iosClientId: '1083250823414-bnv2g72cin4drcpr54m0ugl1kgatmume.apps.googleusercontent.com',
     iosBundleId: 'com.example.flutterUi',
   );
@@ -77,6 +78,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '1083250823414',
     projectId: 'fir-flutter-petshop',
     storageBucket: 'fir-flutter-petshop.appspot.com',
+    androidClientId: '1083250823414-g2quisopa9vemlhi4komi2h588boi40u.apps.googleusercontent.com',
     iosClientId: '1083250823414-bnv2g72cin4drcpr54m0ugl1kgatmume.apps.googleusercontent.com',
     iosBundleId: 'com.example.flutterUi',
   );

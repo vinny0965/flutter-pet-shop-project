@@ -13,6 +13,7 @@ class AuthenticationRepository extends GetxController {
 
   final _auth = FirebaseAuth.instance;
   late final Rx<User?> firebaseUser;
+  var verificationId = ''.obs;
 
   @override
   void onReady() {
@@ -28,6 +29,35 @@ class AuthenticationRepository extends GetxController {
         : Get.offAll(() => const DashBoard());
   }
 
+  Future<void> phoneAuthentication(String phoneN) async {
+    await _auth.verifyPhoneNumber(
+      phoneNumber: phoneN,
+      verificationCompleted: (credential) async {
+        await _auth.signInWithCredential(credential);
+      },
+      codeSent: ((verificationId, forceResendingToken) {
+        this.verificationId.value = verificationId;
+      }),
+      codeAutoRetrievalTimeout: ((verificationId) {
+        this.verificationId.value = verificationId;
+      }),
+      verificationFailed: (e) {
+        if (e.code == 'invalid-phone-number') {
+          Get.snackbar('Error', 'Número de telefone informado incorreto');
+        } else {
+          Get.snackbar('Error', 'Something went wrong. Try again.');
+        }
+      },
+    );
+  }
+
+  Future<bool> verifyOTP(String otp) async {
+    var credentials = await _auth.signInWithCredential(
+        PhoneAuthProvider.credential(
+            verificationId: this.verificationId.value, smsCode: otp));
+    return credentials.user != null ? true : false;
+  }
+
   Future<void> createUserWithEmailAndPassword(
       String email, String password) async {
     try {
@@ -38,11 +68,19 @@ class AuthenticationRepository extends GetxController {
           : Get.to(const Welcome());
     } on FirebaseAuthException catch (e) {
       final ex = SiginUpWithEmailAndPasswordFailure.code(e.code);
-      print('FIREBASE AUTH EXEPTION - ${ex.message}');
+      // print('FIREBASE AUTH EXEPTION - ${ex.message}');
+      // Get.showSnackbar(GetSnackBar(
+      //   title: e.message,
+      // ));
+      Get.snackbar('Error', ex.message);
       throw ex;
     } catch (_) {
       const ex = SiginUpWithEmailAndPasswordFailure();
-      print('EXCEPTION - ${ex.message}');
+      // print('EXCEPTION - ${ex.message}');
+      // Get.showSnackbar(GetSnackBar(
+      //   title: ex.message,
+      // ));
+      Get.snackbar('Error', ex.message);
       throw ex;
     }
   }
@@ -54,12 +92,20 @@ class AuthenticationRepository extends GetxController {
       Get.to(const DashBoard());
     } on FirebaseAuthException catch (e) {
       final ex = SiginUpWithEmailAndPasswordFailure.code(e.code);
-      print('FIREBASE AUTH EXEPTION - ${ex.message}');
-      throw ex;
+      // print('FIREBASE AUTH EXEPTION - ${ex.message}');
+      // Get.showSnackbar(GetSnackBar(
+      //   title: ex.message,
+      // ));
+      Get.snackbar('Error', ex.message);
+      // throw ex;
     } catch (_) {
       const ex = SiginUpWithEmailAndPasswordFailure();
-      print('EXCEPTION - ${ex.message}');
-      throw ex;
+      // print('EXCEPTION - ${ex.message}');
+      // Get.showSnackbar(GetSnackBar(
+      //   title: ex.message,
+      // ));
+      Get.snackbar('Error', ex.message);
+      // throw ex;
     }
   }
 
