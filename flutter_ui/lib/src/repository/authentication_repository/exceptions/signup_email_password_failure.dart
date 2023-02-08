@@ -23,6 +23,8 @@ class SiginUpWithEmailAndPasswordFailure {
       case 'email-already-exists':
         return const SiginUpWithEmailAndPasswordFailure(
             'O e-mail fornecido já está em uso por um usuário existente.');
+      case 'invalid-password':
+        return const SiginUpWithEmailAndPasswordFailure('Senha incorreta');
       default:
         return const SiginUpWithEmailAndPasswordFailure();
     }

@@ -31,24 +31,24 @@ class AuthenticationRepository extends GetxController {
 
   Future<void> phoneAuthentication(String phoneN) async {
     await _auth.verifyPhoneNumber(
-      phoneNumber: phoneN,
-      verificationCompleted: (credential) async {
-        await _auth.signInWithCredential(credential);
-      },
-      codeSent: ((verificationId, forceResendingToken) {
-        this.verificationId.value = verificationId;
-      }),
-      codeAutoRetrievalTimeout: ((verificationId) {
-        this.verificationId.value = verificationId;
-      }),
-      verificationFailed: (e) {
-        if (e.code == 'invalid-phone-number') {
-          Get.snackbar('Error', 'Número de telefone informado incorreto');
-        } else {
-          Get.snackbar('Error', 'Something went wrong. Try again.');
-        }
-      },
-    );
+        phoneNumber: phoneN,
+        verificationCompleted: (credential) async {
+          await _auth.signInWithCredential(credential);
+        },
+        codeSent: ((verificationId, forceResendingToken) {
+          this.verificationId.value = verificationId;
+        }),
+        codeAutoRetrievalTimeout: ((verificationId) {
+          this.verificationId.value = verificationId;
+        }),
+        verificationFailed: (e) {
+          if (e.code == 'invalid-phone-number') {
+            Get.snackbar('Error', 'Número de telefone informado incorreto');
+          }
+          if (e.code == 'invalid-verification-code') {
+            Get.snackbar('Error', 'Código de Verificação Incorreto');
+          }
+        });
   }
 
   Future<bool> verifyOTP(String otp) async {
@@ -97,7 +97,7 @@ class AuthenticationRepository extends GetxController {
       //   title: ex.message,
       // ));
       Get.snackbar('Error', ex.message);
-      // throw ex;
+      throw ex;
     } catch (_) {
       const ex = SiginUpWithEmailAndPasswordFailure();
       // print('EXCEPTION - ${ex.message}');
@@ -105,7 +105,7 @@ class AuthenticationRepository extends GetxController {
       //   title: ex.message,
       // ));
       Get.snackbar('Error', ex.message);
-      // throw ex;
+      throw ex;
     }
   }
 
