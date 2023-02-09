@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/src/features/authentication/controllers/signup_controller.dart';
-import 'package:flutter_ui/src/features/authentication/models/user_model.dart';
+import 'package:flutter_ui/src/features/core/models/user_model.dart';
 import 'package:flutter_ui/src/features/authentication/screens/forget_password/forget_password_otp/otp_screen.dart';
 import 'package:get/get.dart';
 

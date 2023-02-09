@@ -5,6 +5,7 @@ import 'package:flutter_ui/src/constants/color.dart';
 import 'package:flutter_ui/src/constants/image_strings.dart';
 import 'package:flutter_ui/src/constants/sizes.dart';
 import 'package:flutter_ui/src/constants/text_strings.dart';
+import 'package:flutter_ui/src/features/core/screens/gerenciamento/gerenciamento_screen.dart';
 import 'package:flutter_ui/src/features/core/screens/profile/update_profile_screen.dart';
 import 'package:flutter_ui/src/features/core/screens/profile/widgets/profile_menu.dart';
 import 'package:flutter_ui/src/repository/authentication_repository/authentication_repository.dart';
@@ -115,7 +116,9 @@ class ProifleScreen extends StatelessWidget {
               ProfileMenuWidget(
                 title: "Gerenciamento Usuário",
                 icon: LineAwesomeIcons.user_check,
-                onPress: () {},
+                onPress: () {
+                  Get.to(() => const GerenciamentoScreen());
+                },
               ),
               const Divider(
                 color: Colors.grey,

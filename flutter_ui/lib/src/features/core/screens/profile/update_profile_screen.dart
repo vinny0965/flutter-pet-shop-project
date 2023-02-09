@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_ui/src/constants/sizes.dart';
-import 'package:flutter_ui/src/features/authentication/models/user_model.dart';
+import 'package:flutter_ui/src/features/core/models/user_model.dart';
 import 'package:flutter_ui/src/features/core/controllers/profile_controller.dart';
 import 'package:get/get.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
@@ -36,6 +36,14 @@ class UpdateProfileScreen extends StatelessWidget {
               if (snapShot.connectionState == ConnectionState.done) {
                 if (snapShot.hasData) {
                   UserModel userData = snapShot.data as UserModel;
+
+                  final email = TextEditingController(text: userData.email);
+                  final fullName =
+                      TextEditingController(text: userData.fullName);
+                  final telefone =
+                      TextEditingController(text: userData.phoneNo);
+                  final senha = TextEditingController(text: userData.password);
+
                   return Column(children: [
                     Stack(
                       children: [
@@ -74,7 +82,7 @@ class UpdateProfileScreen extends StatelessWidget {
                         child: Column(
                       children: [
                         TextFormField(
-                          initialValue: userData.fullName,
+                          controller: fullName,
                           decoration: InputDecoration(
                               label: Text(tFullName),
                               prefixIcon: Icon(LineAwesomeIcons.user)),
@@ -83,7 +91,7 @@ class UpdateProfileScreen extends StatelessWidget {
                           height: tFormHeigth - 20,
                         ),
                         TextFormField(
-                          initialValue: userData.email,
+                          controller: email,
                           decoration: InputDecoration(
                               label: Text(tEmail),
                               prefixIcon: Icon(LineAwesomeIcons.envelope_1)),
@@ -92,7 +100,7 @@ class UpdateProfileScreen extends StatelessWidget {
                           height: tFormHeigth - 20,
                         ),
                         TextFormField(
-                          initialValue: userData.phoneNo,
+                          controller: telefone,
                           decoration: InputDecoration(
                               label: Text(tPhoneN),
                               prefixIcon: Icon(LineAwesomeIcons.phone)),
@@ -101,7 +109,7 @@ class UpdateProfileScreen extends StatelessWidget {
                           height: tFormHeigth - 20,
                         ),
                         TextFormField(
-                          initialValue: userData.password,
+                          controller: senha,
                           decoration: InputDecoration(
                               label: Text(tSenha),
                               prefixIcon: Icon(LineAwesomeIcons.fingerprint)),
@@ -112,8 +120,16 @@ class UpdateProfileScreen extends StatelessWidget {
                         SizedBox(
                           width: double.infinity,
                           child: ElevatedButton(
-                              onPressed: () =>
-                                  Get.to(const UpdateProfileScreen()),
+                              onPressed: () async {
+                                final user = UserModel(
+                                    id: userData.id,
+                                    fullName: fullName.text.trim(),
+                                    email: email.text.trim(),
+                                    phoneNo: telefone.text.trim(),
+                                    password: senha.text.trim());
+                                await controller.updateRecord(user);
+                                Get.to(const UpdateProfileScreen());
+                              },
                               style: ElevatedButton.styleFrom(
                                   backgroundColor: tPrimaryColor,
                                   side: BorderSide.none,

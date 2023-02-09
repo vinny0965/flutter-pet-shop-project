@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ui/src/features/authentication/models/user_model.dart';
+import 'package:flutter_ui/src/features/core/models/endereco_model.dart';
+import 'package:flutter_ui/src/features/core/models/user_model.dart';
 import 'package:get/get.dart';
 
 class UserRepository extends GetxController {
@@ -41,5 +42,16 @@ class UserRepository extends GetxController {
     final userData =
         snapshot.docs.map((e) => UserModel.fromSnapshot(e)).toList();
     return userData;
+  }
+
+  Future<List<EnderecoModel>> allEndereco() async {
+    final snapshot = await _db.collectionGroup("Endereco").get();
+    final userData =
+        snapshot.docs.map((e) => EnderecoModel.fromSnapshot(e)).toList();
+    return userData;
+  }
+
+  Future<void> updateUserRecord(UserModel user) async {
+    await _db.collection("Users").doc(user.id).update(user.toJson());
   }
 }

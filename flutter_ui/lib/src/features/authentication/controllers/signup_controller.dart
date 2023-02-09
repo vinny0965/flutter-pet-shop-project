@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ui/src/features/authentication/models/user_model.dart';
+import 'package:flutter_ui/src/features/core/models/user_model.dart';
 import 'package:flutter_ui/src/features/authentication/screens/forget_password/forget_password_otp/otp_screen.dart';
 import 'package:flutter_ui/src/repository/authentication_repository/authentication_repository.dart';
 import 'package:flutter_ui/src/repository/user_repository/user_repository.dart';

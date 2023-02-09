@@ -7,6 +7,7 @@ import 'package:flutter_ui/src/repository/authentication_repository/authenticati
 import 'package:flutter_ui/src/utils/theme/theme.dart';
 import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
