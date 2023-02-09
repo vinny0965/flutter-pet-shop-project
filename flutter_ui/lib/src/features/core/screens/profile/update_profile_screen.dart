@@ -92,6 +92,49 @@ class UpdateProfileScreen extends StatelessWidget {
                       label: Text(tSenha),
                       prefixIcon: Icon(LineAwesomeIcons.fingerprint)),
                 ),
+                const SizedBox(
+                  height: tFormHeigth,
+                ),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                      onPressed: () => Get.to(const UpdateProfileScreen()),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: tPrimaryColor,
+                          side: BorderSide.none,
+                          shape: const StadiumBorder()),
+                      child: const Text(
+                        tEditProfile,
+                        style: TextStyle(color: tDarkColor),
+                      )),
+                ),
+                const SizedBox(
+                  height: tFormHeigth,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text.rich(TextSpan(
+                        text: tJoined,
+                        style: TextStyle(fontSize: 12),
+                        children: [
+                          TextSpan(
+                              text: tJoinedAt,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 12))
+                        ])),
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: const Text(tDelete),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.redAccent.withOpacity(0.1),
+                          elevation: 0,
+                          foregroundColor: Colors.red,
+                          shape: const StadiumBorder(),
+                          side: BorderSide.none),
+                    )
+                  ],
+                )
               ],
             ))
           ]),
