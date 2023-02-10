@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/src/features/core/models/endereco_model.dart';
+import 'package:flutter_ui/src/features/core/models/servico_model.dart';
+import 'package:flutter_ui/src/features/core/models/servicos_list_model.dart';
 import 'package:flutter_ui/src/features/core/models/user_model.dart';
 import 'package:get/get.dart';
 
@@ -37,6 +39,13 @@ class UserRepository extends GetxController {
     return userData;
   }
 
+  Future<ServicoModel> getServicoDetails() async {
+    final snapshot = await _db.collection("Splash").get();
+    final userData =
+        snapshot.docs.map((e) => ServicoModel.fromSnapshot(e)).single;
+    return userData;
+  }
+
   Future<List<UserModel>> allUser() async {
     final snapshot = await _db.collection("Users").get();
     final userData =
@@ -53,5 +62,19 @@ class UserRepository extends GetxController {
 
   Future<void> updateUserRecord(UserModel user) async {
     await _db.collection("Users").doc(user.id).update(user.toJson());
+  }
+
+  Future<List<ServicoModel>> allServicod() async {
+    final snapshot = await _db.collection("Splash").get();
+    final servicoData =
+        snapshot.docs.map((e) => ServicoModel.fromSnapshot(e)).toList();
+    return servicoData;
+  }
+
+  Future<List<ServicoListModel>> allServicosList() async {
+    final snapshot = await _db.collection("Servicos").get();
+    final servicoData =
+        snapshot.docs.map((e) => ServicoListModel.fromSnapshot(e)).toList();
+    return servicoData;
   }
 }

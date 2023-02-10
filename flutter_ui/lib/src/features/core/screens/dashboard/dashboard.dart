@@ -3,9 +3,15 @@ import 'package:flutter_ui/src/constants/color.dart';
 import 'package:flutter_ui/src/constants/image_strings.dart';
 import 'package:flutter_ui/src/constants/sizes.dart';
 import 'package:flutter_ui/src/constants/text_strings.dart';
+import 'package:flutter_ui/src/features/core/models/servico_model.dart';
 import 'package:flutter_ui/src/features/core/screens/profile/profile_screen.dart';
+import 'package:flutter_ui/src/features/core/screens/servicos/servico_screen.dart';
+import 'package:flutter_ui/src/features/core/screens/servicos/servico_screen_copy.dart';
+import 'package:flutter_ui/src/features/core/screens/servicos/servicos_model_bottom_sheet.dart';
 import 'package:flutter_ui/src/repository/authentication_repository/authentication_repository.dart';
 import 'package:get/get.dart';
+
+import '../../controllers/profile_controller.dart';
 
 class DashBoard extends StatelessWidget {
   const DashBoard({super.key});
@@ -13,6 +19,7 @@ class DashBoard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    final controller = Get.put(ProfileController());
 
     return Scaffold(
       appBar: AppBar(
@@ -79,138 +86,174 @@ class DashBoard extends StatelessWidget {
               height: tDashboardPadding,
             ),
             //categorias
-
-            SizedBox(
-              height: 45,
-              child: ListView(
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                children: [
-                  SizedBox(
-                    width: 170,
-                    height: 50,
-                    child: Row(
-                      children: [
-                        Container(
-                          width: 45,
+            Column(
+              children: [
+                Container(
+                    child: FutureBuilder(
+                  future: controller.getServicoData(),
+                  builder: (context, snapShot) {
+                    if (snapShot.connectionState == ConnectionState.done) {
+                      if (snapShot.hasData) {
+                        ServicoModel userData = snapShot.data as ServicoModel;
+                        final servico =
+                            TextEditingController(text: userData.servico);
+                        final tipo = TextEditingController(text: userData.tipo);
+                        return SizedBox(
                           height: 45,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: tDarkColor),
-                          child: Center(
-                            child: Text(
-                              "GT",
-                              style: textTheme.headline6
-                                  ?.apply(color: Colors.white),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 5),
-                        Flexible(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
+                          child: ListView(
+                            shrinkWrap: true,
+                            scrollDirection: Axis.horizontal,
                             children: [
-                              Text(
-                                "Gatos",
-                                style: textTheme.headline6,
-                                overflow: TextOverflow.ellipsis,
+                              SizedBox(
+                                width: 170,
+                                height: 50,
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      width: 45,
+                                      height: 45,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          color: tDarkColor),
+                                      child: Center(
+                                        child: Text(
+                                          servico.text,
+                                          style: textTheme.headline6
+                                              ?.apply(color: Colors.white),
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 5),
+                                    Flexible(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            tipo.text,
+                                            style: textTheme.headline6,
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                          Text(
+                                            "7 Serviços",
+                                            style: textTheme.bodyText2,
+                                            overflow: TextOverflow.ellipsis,
+                                          )
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ),
-                              Text(
-                                "7 Serviços",
-                                style: textTheme.bodyText2,
-                                overflow: TextOverflow.ellipsis,
-                              )
+                              SizedBox(
+                                width: 170,
+                                height: 50,
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      width: 45,
+                                      height: 45,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          color: tDarkColor),
+                                      child: Center(
+                                        child: Text(
+                                          "GT",
+                                          style: textTheme.headline6
+                                              ?.apply(color: Colors.white),
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 5),
+                                    Flexible(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            "Gatos",
+                                            style: textTheme.headline6,
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                          Text(
+                                            "7 Serviços",
+                                            style: textTheme.bodyText2,
+                                            overflow: TextOverflow.ellipsis,
+                                          )
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                width: 170,
+                                height: 50,
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      width: 45,
+                                      height: 45,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          color: tDarkColor),
+                                      child: Center(
+                                        child: Text(
+                                          "GT",
+                                          style: textTheme.headline6
+                                              ?.apply(color: Colors.white),
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 5),
+                                    Flexible(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            "Gatos",
+                                            style: textTheme.headline6,
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                          Text(
+                                            "7 Serviços",
+                                            style: textTheme.bodyText2,
+                                            overflow: TextOverflow.ellipsis,
+                                          )
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
                             ],
                           ),
-                        )
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    width: 170,
-                    height: 50,
-                    child: Row(
-                      children: [
-                        Container(
-                          width: 45,
-                          height: 45,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: tDarkColor),
-                          child: Center(
-                            child: Text(
-                              "GT",
-                              style: textTheme.headline6
-                                  ?.apply(color: Colors.white),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 5),
-                        Flexible(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Gatos",
-                                style: textTheme.headline6,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                              Text(
-                                "7 Serviços",
-                                style: textTheme.bodyText2,
-                                overflow: TextOverflow.ellipsis,
-                              )
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    width: 170,
-                    height: 50,
-                    child: Row(
-                      children: [
-                        Container(
-                          width: 45,
-                          height: 45,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: tDarkColor),
-                          child: Center(
-                            child: Text(
-                              "GT",
-                              style: textTheme.headline6
-                                  ?.apply(color: Colors.white),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 5),
-                        Flexible(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Gatos",
-                                style: textTheme.headline6,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                              Text(
-                                "7 Serviços",
-                                style: textTheme.bodyText2,
-                                overflow: TextOverflow.ellipsis,
-                              )
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+                        );
+                      } else if (snapShot.hasError) {
+                        return const Center(
+                          child: Text("Something went wrong"),
+                        );
+                      } else {
+                        return const Center(
+                          child: Text("Something went wrong"),
+                        );
+                      }
+                    } else {
+                      return const Center(child: CircularProgressIndicator());
+                    }
+                  },
+                ))
+              ],
             ),
             const SizedBox(
               height: tDashboardPadding,
@@ -300,7 +343,10 @@ class DashBoard extends StatelessWidget {
                     SizedBox(
                       width: double.infinity,
                       child: OutlinedButton(
-                          onPressed: () {}, child: Text(tDashBoardButtonText)),
+                          onPressed: () {
+                            Get.to(() => const ServicoScreenCopy());
+                          },
+                          child: Text(tDashBoardButtonText)),
                     ),
                   ],
                 ))
