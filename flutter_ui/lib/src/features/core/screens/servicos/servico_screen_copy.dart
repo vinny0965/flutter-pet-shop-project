@@ -23,6 +23,7 @@ class ServicoScreenCopy extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     final controller = Get.put(ProfileController());
     var servico = "";
+    var valor = "";
     return Scaffold(
       appBar: AppBar(
         backgroundColor: tOnBoardingPage1Color,
@@ -58,8 +59,9 @@ class ServicoScreenCopy extends StatelessWidget {
                             image: tSplashImage,
                             onPressed: () {
                               servico = snapShot.data![index].tipo;
+                              valor = snapShot.data![index].valor;
                               ServicosBottonSheet.buildShowModalBottomSheet(
-                                  context, servico);
+                                  context, servico, valor);
                             },
                           );
                         });

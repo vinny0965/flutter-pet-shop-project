@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui/src/features/core/models/agendamento_model.dart';
 import 'package:flutter_ui/src/features/core/models/endereco_model.dart';
 import 'package:flutter_ui/src/features/core/models/servico_model.dart';
 import 'package:flutter_ui/src/features/core/models/servicos_list_model.dart';
@@ -33,6 +34,10 @@ class ProfileController extends GetxController {
 
   Future<List<EnderecoModel>> getEnderecoData() async {
     return await _userRepo.allEndereco();
+  }
+
+  Future<List<AgendamentoModel>> getAgendamentoData() async {
+    return await _userRepo.allAgendamneto();
   }
 
   Future<List<UserModel>> getAllUser() async {

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_ui/src/constants/text_strings.dart';
+import 'package:flutter_ui/src/features/core/controllers/agendamento_controller.dart';
+import 'package:flutter_ui/src/features/core/models/agendamento_model.dart';
 import 'package:flutter_ui/src/features/core/models/endereco_model.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -26,15 +28,15 @@ class GerenciamentoScreen extends StatelessWidget {
             onPressed: () => Get.back(),
             icon: const Icon(LineAwesomeIcons.angle_left)),
         title: Text(
-          tEditProfile,
+          "Agendamentos Realizados",
           style: Theme.of(context).textTheme.headline4,
         ),
       ),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(tDefaultSize),
-          child: FutureBuilder<List<EnderecoModel>>(
-            future: controller.getEnderecoData(),
+          child: FutureBuilder<List<AgendamentoModel>>(
+            future: controller.getAgendamentoData(),
             builder: (context, snapShot) {
               if (snapShot.connectionState == ConnectionState.done) {
                 if (snapShot.hasData) {
@@ -47,16 +49,18 @@ class GerenciamentoScreen extends StatelessWidget {
                             ListTile(
                               iconColor: Colors.blue,
                               tileColor: Colors.blue.withOpacity(0.1),
-                              leading: const Icon(LineAwesomeIcons.user_1),
+                              leading: const Icon(LineAwesomeIcons.calendar),
                               title: Text(
-                                  "Cidade: ${snapShot.data![index].cidade}"),
-                              // subtitle: Column(
-                              //   crossAxisAlignment: CrossAxisAlignment.start,
-                              //   children: [
-                              //     Text(snapShot.data![index].phoneNo),
-                              //     Text(snapShot.data![index].email),
-                              //   ],
-                              // ),
+                                  "Agendamento: ${snapShot.data![index].servico}"),
+                              subtitle: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text("Data: ${snapShot.data![index].data}"),
+                                  Text(
+                                      "Horario: ${snapShot.data![index].horario}"),
+                                  Text("Valor: ${snapShot.data![index].valor}"),
+                                ],
+                              ),
                             ),
                             const SizedBox(
                               height: 10,

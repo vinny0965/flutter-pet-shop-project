@@ -21,7 +21,10 @@ class ProifleScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-            onPressed: () {}, icon: const Icon(LineAwesomeIcons.angle_left)),
+            onPressed: () {
+              Get.back();
+            },
+            icon: const Icon(LineAwesomeIcons.angle_left)),
         title: Text(
           tProfile,
           style: Theme.of(context).textTheme.headline4,
@@ -114,7 +117,7 @@ class ProifleScreen extends StatelessWidget {
                 onPress: () {},
               ),
               ProfileMenuWidget(
-                title: "Gerenciamento Usuário",
+                title: "Agendamentos",
                 icon: LineAwesomeIcons.user_check,
                 onPress: () {
                   Get.to(() => const GerenciamentoScreen());

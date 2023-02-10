@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/src/features/authentication/controllers/signup_controller.dart';
 import 'package:flutter_ui/src/features/authentication/screens/forget_password/forget_password_email/forget_password_mail.dart';
+import 'package:flutter_ui/src/features/core/controllers/agendamento_controller.dart';
+import 'package:flutter_ui/src/features/core/models/agendamento_model.dart';
+import 'package:flutter_ui/src/repository/user_repository/user_repository.dart';
 import 'package:get/get.dart';
 
 import '../../../../constants/sizes.dart';
@@ -10,8 +13,8 @@ import '../../models/user_model.dart';
 
 class ServicosBottonSheet {
   static Future<dynamic> buildShowModalBottomSheet(
-      BuildContext context, String tipo) {
-    final controller = Get.put(SignUpController());
+      BuildContext context, String tipo, String valor) {
+    final controller = Get.put(AgendamentoController());
     final _formKey = GlobalKey<FormState>();
     return showModalBottomSheet(
         shape:
@@ -46,7 +49,7 @@ class ServicosBottonSheet {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             TextFormField(
-                              controller: controller.fullName,
+                              controller: controller.data,
                               decoration: const InputDecoration(
                                   label: Text("Data"),
                                   prefixIcon: Icon(Icons.calendar_month)),
@@ -55,7 +58,7 @@ class ServicosBottonSheet {
                               height: tFormHeigth - 20,
                             ),
                             TextFormField(
-                              controller: controller.email,
+                              controller: controller.horario,
                               decoration: const InputDecoration(
                                   label: Text("Horário"),
                                   prefixIcon: Icon(Icons.timer)),
@@ -74,14 +77,14 @@ class ServicosBottonSheet {
                                     // SignUpController.instance.phoneAuthentication(
                                     //     controller.phoneNo.text.trim());
                                     // Get.to(() => const OTPScreen());
-                                    final user = UserModel(
-                                        fullName:
-                                            controller.fullName.text.trim(),
-                                        email: controller.email.text.trim(),
-                                        phoneNo: controller.phoneNo.text.trim(),
-                                        password:
-                                            controller.password.text.trim());
-                                    SignUpController.instance.createUser(user);
+                                    final agendamento = AgendamentoModel(
+                                        data: controller.data.text.trim(),
+                                        horario: controller.horario.text.trim(),
+                                        servico: tipo,
+                                        valor: valor);
+                                    AgendamentoController.instance
+                                        .createAgendamento(agendamento);
+                                    Get.back();
                                   }
                                 },
                                 child: const Text("Agendar"),

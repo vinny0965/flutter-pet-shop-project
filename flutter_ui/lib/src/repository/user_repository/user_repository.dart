@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ui/src/features/core/models/agendamento_model.dart';
 import 'package:flutter_ui/src/features/core/models/endereco_model.dart';
 import 'package:flutter_ui/src/features/core/models/servico_model.dart';
 import 'package:flutter_ui/src/features/core/models/servicos_list_model.dart';
@@ -60,6 +61,13 @@ class UserRepository extends GetxController {
     return userData;
   }
 
+  Future<List<AgendamentoModel>> allAgendamneto() async {
+    final snapshot = await _db.collection("Agendamento").get();
+    final userData =
+        snapshot.docs.map((e) => AgendamentoModel.fromSnapshot(e)).toList();
+    return userData;
+  }
+
   Future<void> updateUserRecord(UserModel user) async {
     await _db.collection("Users").doc(user.id).update(user.toJson());
   }
@@ -76,5 +84,26 @@ class UserRepository extends GetxController {
     final servicoData =
         snapshot.docs.map((e) => ServicoListModel.fromSnapshot(e)).toList();
     return servicoData;
+  }
+
+  creteAgendamento(AgendamentoModel agendamentoModel) async {
+    await _db
+        .collection("Agendamento")
+        .add(agendamentoModel.toJson())
+        .whenComplete(
+          () => Get.snackbar("Sucesso", "Agendamento Realizado",
+              snackPosition: SnackPosition.BOTTOM,
+              backgroundColor: Colors.green.withOpacity(0.1),
+              colorText: Colors.green),
+        )
+        .catchError((error, StackTrace) {
+      Get.snackbar(
+        "Error",
+        "Não foi possível agendar, tente novamente",
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.redAccent.withOpacity(0.1),
+        colorText: Colors.red,
+      );
+    });
   }
 }
