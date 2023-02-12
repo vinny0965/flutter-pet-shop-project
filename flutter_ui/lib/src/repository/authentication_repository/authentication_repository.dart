@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_ui/src/features/authentication/screens/on_boarding/on_boarding_screen.dart';
 import 'package:flutter_ui/src/features/authentication/screens/splash_screen/splash_screen.dart';
 import 'package:flutter_ui/src/features/authentication/screens/welcome/welcome.dart';
@@ -96,7 +97,10 @@ class AuthenticationRepository extends GetxController {
       // Get.showSnackbar(GetSnackBar(
       //   title: ex.message,
       // ));
-      Get.snackbar('Error', ex.message);
+      Get.snackbar('Aviso:', ex.message,
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: Colors.red.withOpacity(0.1),
+          colorText: Colors.red);
       throw ex;
     } catch (_) {
       const ex = SiginUpWithEmailAndPasswordFailure();

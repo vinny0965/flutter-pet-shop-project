@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/src/features/authentication/screens/forget_password/forget_password_email/forget_password_mail.dart';
+import 'package:flutter_ui/src/features/authentication/screens/forget_password/forget_password_phone/forget_password_mail.dart';
 import 'package:get/get.dart';
 
 import '../../../../../constants/sizes.dart';
@@ -37,7 +38,7 @@ class ForgetPasswordScreen {
                     subTitle: tResetViaEmail,
                     onTap: () {
                       Navigator.pop(context);
-                      Get.to(ForgetPasswordMailScreen());
+                      Get.to(const ForgetPasswordMailScreen());
                     },
                   ),
                   const SizedBox(
@@ -47,7 +48,10 @@ class ForgetPasswordScreen {
                     btnIcon: Icons.mobile_friendly_rounded,
                     tile: tPhoneN,
                     subTitle: tResetViaCel,
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pop(context);
+                      Get.to(const ForgetPasswordPhoneScreen());
+                    },
                   ),
                 ],
               ),

@@ -69,7 +69,25 @@ class UserRepository extends GetxController {
   }
 
   Future<void> updateUserRecord(UserModel user) async {
-    await _db.collection("Users").doc(user.id).update(user.toJson());
+    await _db
+        .collection("Users")
+        .doc(user.id)
+        .update(user.toJson())
+        .whenComplete(
+          () => Get.snackbar("Sucesso", "Seu cadastro foi atualizado",
+              snackPosition: SnackPosition.BOTTOM,
+              backgroundColor: Colors.green.withOpacity(0.1),
+              colorText: Colors.green),
+        )
+        .catchError((error, StackTrace) {
+      Get.snackbar(
+        "Error",
+        "Não foi possível atualizar, tente novamente",
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.redAccent.withOpacity(0.1),
+        colorText: Colors.red,
+      );
+    });
   }
 
   Future<List<ServicoModel>> allServicod() async {
